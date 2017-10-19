@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>The Essential Vault</title>
+  <meta name="description" content="Searchable and sortable archive of the world's most famous mix show.">
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+
+  <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="/css/skeleton.css">
+  <link rel="stylesheet" type="text/css" href="/css/custom.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.2.1/dist/instantsearch.min.css">
+
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="five columns">
+        <h2>The Essential Vault</h2>
+        <div id="search-box"></div>
+        <h4>Hotness</h4>
+        <div id="hotness"></div>
+        <h4>Year</h4>
+        <div id="years"></div>
+      </div>
+      <div class="seven columns">
+        <div id="hits"></div>
+      </div>
+    </div>
+
+
+  </div>
+
+
+
+
+  <script type="text/html" id="hit-template">
+    <div class="hit">
+      <div class="hit-content">
+        <h5 class="hit-name">{{{_highlightResult.mix_by.value}}}</h2>
+        <p class="hit-description">Rated {{hotness}}/10</p>
+      </div>
+    </div>
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.2.1/dist/instantsearch.min.js"></script>
+  <script src="js/scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "ag-example",
+  "version": "1.0.0",
+  "description": "Scrape Essential Mixes from MixesDB and make them searchable with Algolia",
+  "main": "scraper.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Martyn Davies (@martynd)",
+  "license": "",
+  "dependencies": {
+    "algoliasearch": "^3.24.5",
+    "dotenv": "^4.0.0",
+    "scraperjs": "^1.2.0"
+  }
+}
