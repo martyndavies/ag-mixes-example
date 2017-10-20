@@ -1,5 +1,6 @@
 body {
   margin-top: 50px;
+  background-color: #fff;
 }
 
 a {
@@ -8,6 +9,10 @@ a {
 
 h2, h4, h5 {
  font-family: 'Iceberg', sans-serif;
+}
+
+h2 {
+  text-decoration: underline;
 }
 
 .hit {
@@ -54,6 +59,10 @@ img {
   max-width: 378px !important;
 }
 
+ais-menu-select--select {
+  max-width: 378px !important;
+}
+
 .ais-search-box input {
   padding-left: 30px !important;
 }
@@ -69,6 +78,7 @@ img {
 
 .ais-pagination li {
   font-family: 'Iceberg', sans-serif;
+  font-size: 30px;
 }
 #pagination {
   margin-top: 20px;

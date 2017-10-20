@@ -25,6 +25,14 @@ const mixIndex = client.initIndex('essential_mixes');
 
 search.addWidget(
   instantsearch.widgets.menuSelect({
+    container: '#dj',
+    attributeName: 'mix_by',
+    limit: 400
+  })
+);
+
+search.addWidget(
+  instantsearch.widgets.menuSelect({
     container: '#years',
     attributeName: 'year',
     limit: 25
@@ -35,10 +43,7 @@ search.addWidget(
   instantsearch.widgets.starRating({
     container: '#hotness',
     attributeName: 'hotness',
-    max: 10,
-    labels: {
-      andUp: 'or more'
-    }
+    max: 10
   })
 );
 
