@@ -8,7 +8,6 @@ const search = instantsearch({
 const client = algoliasearch('UXOY6UM4BN', '0b40f33caafd7b1d1a26dc681143756f');
 const mixIndex = client.initIndex('essential_mixes');
 
-
 search.addWidget(
   instantsearch.widgets.rangeSlider({
     container: '#years',
@@ -77,11 +76,18 @@ search.addWidget(
 
 search.on('render', function () {
   $(document).ready(function() {
+    $('.notice').hide();
     $(".mix-link").click(function(e) {
       e.preventDefault();
       var id = $(this).data('algolia-id');
       mixIndex.getObject(id, function(err, content) {
-        console.log(content.objectID + ": " + content.toString());
+        if (content.audio_player != null) {
+          console.log(content.objectID + ": " + content.audio_player.toString());
+          $('.audio_player').empty();
+          $('.audio_player').html(content.audio_player.toString());
+        } else {
+          $('.notice_'+content.objectID).fadeIn('fast').delay(3000).fadeOut('slow');
+        }
       });
     });
   });

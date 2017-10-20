@@ -44,6 +44,25 @@ img {
   margin-top: 20px;
 }
 
+
+/* search box hacks */
+.ais-search-box {
+  max-width: 378px !important;
+}
+
+.ais-search-box input {
+  padding-left: 30px !important;
+}
+
+.ais-search-box--magnifier {
+  left: 7px;
+  top: 13px !important;
+}
+
+.ais-search-box--reset {
+  top: 0px !important;
+}
+
 #pagination {
   margin-top: 20px;
   text-align: center;
