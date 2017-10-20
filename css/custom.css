@@ -2,15 +2,49 @@ body {
   margin-top: 50px;
 }
 
-input[type="text"] {
-  padding-right: 35px !important;
+a {
+  color: #000;
+}
+
+h2, h4, h5 {
+ font-family: 'Iceberg', sans-serif;
 }
 
 .hit {
   background-color: lightblue;
-  border: 1px solid black;
+  border: 1px solid darkgrey;
   margin-bottom: 10px;
   border-radius: 10px;
-  padding: 10px;
+  padding-right: 10px;
   box-sizing: border-box;
+}
+
+img {
+  border-radius: 10px;
+}
+
+.hit-content {
+  height: 100px;
+}
+
+.hit-image {
+  float: left;
+  margin-right: 10px;
+}
+
+.hit-mix-info {
+
+}
+
+.hit-description {
+  margin-top: -25px;
+}
+
+.space {
+  margin-top: 20px;
+}
+
+#pagination {
+  margin-top: 20px;
+  text-align: center;
 }
