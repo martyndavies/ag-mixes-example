@@ -8,7 +8,7 @@ const search = instantsearch({
 const client = algoliasearch('UXOY6UM4BN', '0b40f33caafd7b1d1a26dc681143756f');
 const mixIndex = client.initIndex('essential_mixes');
 
-search.addWidget(
+/*search.addWidget(
   instantsearch.widgets.rangeSlider({
     container: '#years',
     attributeName: 'year',
@@ -20,6 +20,14 @@ search.addWidget(
         return rawValue;
       }
     }
+  })
+);*/
+
+search.addWidget(
+  instantsearch.widgets.menuSelect({
+    container: '#years',
+    attributeName: 'year',
+    limit: 25
   })
 );
 
@@ -76,7 +84,6 @@ search.addWidget(
 
 search.on('render', function () {
   $(document).ready(function() {
-    $('.notice').hide();
     $(".mix-link").click(function(e) {
       e.preventDefault();
       var id = $(this).data('algolia-id');
@@ -113,8 +120,6 @@ search.templatesConfig.helpers.trim_long_titles = function() {
 search.templatesConfig.helpers.emojify = function() {
   if (this.hotness > 8) {
     return this.hotness+'/10 🔥';
-  } else if (this.hotness < 3) {
-    return this.hotness+'/10 💩';
   } else {
     return this.hotness+'/10';
   }

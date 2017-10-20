@@ -40,6 +40,10 @@ img {
   margin-top: -25px;
 }
 
+#notice {
+  margin-top: -15px;
+}
+
 .space {
   margin-top: 20px;
 }
@@ -63,6 +67,9 @@ img {
   top: 0px !important;
 }
 
+.ais-pagination li {
+  font-family: 'Iceberg', sans-serif;
+}
 #pagination {
   margin-top: 20px;
   text-align: center;

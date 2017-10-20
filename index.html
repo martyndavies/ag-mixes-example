@@ -37,6 +37,7 @@
 
       </div>
       <div class="seven columns">
+        <div id="sort"></div>
         <div id="hits"></div>
         <div id="pagination"></div>
       </div>
@@ -54,7 +55,7 @@
         <div class="hit-mix-info">
           <h5 class="hit-name"><a href="#" class="mix-link" data-algolia-id={{objectID}}>{{#helpers.trim_long_titles}}{{{_highlightResult.mix_by.value}}}{{/helpers.trim_long_titles}}</a></h2>
           <p class="hit-description">Broadcast {{#helpers.dateFormatter}}{{broadcast_date}}{{/helpers.dateFormatter}} and rated {{#helpers.emojify}}{{hotness}}{{/helpers.emojify}}</p>
-          <p class="notice" style="color: red;">Sorry, there's no audio available for this mix</p>
+          <p id="notice" class="notice_{{objectID}}" style="color: red; display:none;">Sorry, there's no audio available for this mix</p>
         </div>
       </div>
     </div>
