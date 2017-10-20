@@ -11,6 +11,7 @@
   "dependencies": {
     "algoliasearch": "^3.24.5",
     "dotenv": "^4.0.0",
+    "image-search-google": "^1.0.7",
     "scraperjs": "^1.2.0"
   }
 }
