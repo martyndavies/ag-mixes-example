@@ -98,7 +98,7 @@ search.on('render', function () {
         if (content.audio_player != null) {
           console.log(content.objectID + ": " + content.audio_player.toString());
           $('.audio_player').empty();
-          $('.audio_player').html(content.audio_player.toString());
+            $('.audio_player').append(content.audio_player.toString());
         } else {
           $('.notice_'+content.objectID).fadeIn('fast').delay(3000).fadeOut('slow');
         }

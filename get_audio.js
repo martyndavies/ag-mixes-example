@@ -30,33 +30,19 @@ browseMixes.on('end', function onEnd(){
 
   listofMixes.forEach(function(mixObj, index){
 
-    // Scraping 1300+ pages is a bit harsh, so let's chill on the load a bit (should take roughly 20 mins to run)
+    // Scraping 1300+ pages is a bit harsh, so let's chill on the load a bit (should take roughly 40 mins to run)
     setTimeout(function(){
 
       scraper.StaticScraper
         .create('https://www.mixesdb.com'+mixObj.mixesdb_url)
         .scrape(function($) {
-          return $("#mw-content-text").map(function() {
+          return $(".playerWrapper").map(function() {
 
-            var tracklist = $(this).find('ol').html();
-
-            // our preference is to get the Mixcloud player, try a couple of different ways
-            if (mixObj.has_audio) {
-              if ($(this).find('div.mixcloud')) {
-                var audioPlayer = $(this).find('div.mixcloud').html();
-              } else {
-                var audioPlayer = $(this).find('div.hearthis').html();
-              }
-            } else {
-              var audioPlayer = null;
-            };
+            var audioPlayer = $(this).find('div.mixcloud').html();
+            console.log(audioPlayer);
 
             //build an object of new attributes to add to Algolia
-            return newObj = {
-              tracklist: tracklist,
-              audio_player: audioPlayer,
-              objID: mixObj.objectID
-            };
+            return audioPlayer;
 
           }).get();
         })
@@ -64,11 +50,10 @@ browseMixes.on('end', function onEnd(){
 
           console.log(newObj[0]);
 
-          // Add the tracklist and audio player into the Algolia index for this ObjID if it doesn't exist
+          // Add the audio player into the Algolia index for this ObjID
           mixes.partialUpdateObject({
-            tracklist: newObj[0].tracklist,
-            audio_player: newObj[0].audio_player,
-            objectID: newObj[0].objID
+            audio_player: newObj,
+            objectID: mixObj.objectID
           }, function(err, content) {
             if (err) {
               console.log(err);
