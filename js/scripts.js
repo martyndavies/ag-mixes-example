@@ -85,7 +85,7 @@ search.addWidget(
   })
 );
 
-// click hanlers
+// click handlers
 
 search.on('render', function () {
   $(document).ready(function() {
