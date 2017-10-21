@@ -37,13 +37,8 @@ browseMixes.on('end', function onEnd(){
         .create('https://www.mixesdb.com'+mixObj.mixesdb_url)
         .scrape(function($) {
           return $(".playerWrapper").map(function() {
-
-            var audioPlayer = $(this).find('div.mixcloud').html();
-            console.log(audioPlayer);
-
-            //build an object of new attributes to add to Algolia
+            var audioPlayer = $(this).find('iframe').attr('data-mcpath');
             return audioPlayer;
-
           }).get();
         })
         .then(function(newObj) {

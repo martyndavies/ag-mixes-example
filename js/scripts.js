@@ -96,13 +96,12 @@ search.on('render', function () {
       var id = $(this).data('algolia-id');
       mixIndex.getObject(id, function(err, content) {
         if (content.audio_player != null) {
-          console.log(content.objectID + ": " + content.audio_player.toString());
           $('.audio_player').empty();
-          //$('.tracklist').slideUp('fast').empty();
-          $('.audio_player').html(content.audio_player.toString());
+          var mix_url = encodeURI(content.audio_player);
+          $('.audio_player').html('<iframe width="100%" height="60" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&hide_artwork=1&feed='+mix_url+'" frameborder="0" ></iframe>');
           $('.tracklist').slideUp('slow', function(){
             $('.tracklist').empty();
-            $('.tracklist').html('<ol>'+content.tracklist+'</ol>').slideDown('3000');
+            $('.tracklist').append('<ol>'+content.tracklist+'</ol>').slideDown('3000');
           });
         } else {
           $('.notice_'+content.objectID).fadeIn('fast').delay(3000).fadeOut('slow');
