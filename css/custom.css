@@ -15,6 +15,11 @@ h2 {
   text-decoration: underline;
 }
 
+.tracklist {
+  font-size: 10px;
+  line-height: 14px;
+}
+
 #hits {
   margin-top: 70px;
 }
