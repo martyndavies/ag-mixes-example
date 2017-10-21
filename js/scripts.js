@@ -8,20 +8,7 @@ const search = instantsearch({
 const client = algoliasearch('UXOY6UM4BN', '0b40f33caafd7b1d1a26dc681143756f');
 const mixIndex = client.initIndex('essential_mixes');
 
-/*search.addWidget(
-  instantsearch.widgets.rangeSlider({
-    container: '#years',
-    attributeName: 'year',
-    templates: {
-      header: 'Year'
-    },
-    tooltips: {
-      format: function(rawValue) {
-        return rawValue;
-      }
-    }
-  })
-);*/
+// Select mixes by your favourite DJ
 
 search.addWidget(
   instantsearch.widgets.menuSelect({
@@ -31,6 +18,8 @@ search.addWidget(
   })
 );
 
+// Select mixes that happened in particular years
+
 search.addWidget(
   instantsearch.widgets.menuSelect({
     container: '#years',
@@ -38,6 +27,8 @@ search.addWidget(
     limit: 25
   })
 );
+
+// Select mixes by their hottttttness
 
 search.addWidget(
   instantsearch.widgets.starRating({
@@ -47,12 +38,16 @@ search.addWidget(
   })
 );
 
+// Search
+
 search.addWidget(
   instantsearch.widgets.searchBox({
     container: '#search-box',
     placeholder: 'Search for a mix!'
   })
 );
+
+// Results
 
 search.addWidget(
   instantsearch.widgets.hits({
@@ -64,6 +59,8 @@ search.addWidget(
   })
 );
 
+// Pagination, you know, for pages
+
 search.addWidget(
   instantsearch.widgets.pagination({
     container: '#pagination',
@@ -73,6 +70,8 @@ search.addWidget(
     showFirstLast: false,
   })
 );
+
+// Reset the search
 
 search.addWidget(
   instantsearch.widgets.clearAll({
@@ -85,7 +84,10 @@ search.addWidget(
   })
 );
 
-// click handlers
+// Custom click handler on render, so that jQuery clicks will work
+// properly. This then loads the audio player into a div if no player
+// exists. If one does, it removes it first. If there is no mix, then
+// an error is displayed.
 
 search.on('render', function () {
   $(document).ready(function() {
@@ -105,12 +107,20 @@ search.on('render', function () {
   });
 });
 
-// custom helpers
+// Custom helpers
+// Some little fun things to change up the way the information is displayed
+// to users when the hits are returned.
+
+// Use moment.js to reformat the broadcast_date to 'n days/months/years ago'
+// and return the new wording to the hit
 
 search.templatesConfig.helpers.dateFormatter = function() {
   var formatted_time = moment(this.broadcast_date, "YYYY-MM-DD").fromNow();
   return '<em>' + formatted_time + '</em>';
 };
+
+// Some titles are really long, let's truncate them if they are and
+// pretty them up a bit.
 
 search.templatesConfig.helpers.trim_long_titles = function() {
   if (this.mix_by.length > 25) {
@@ -122,6 +132,8 @@ search.templatesConfig.helpers.trim_long_titles = function() {
   }
 };
 
+// Some things just need an emoji.
+
 search.templatesConfig.helpers.emojify = function() {
   if (this.hotness > 8) {
     return this.hotness+'/10 🔥';
@@ -130,4 +142,6 @@ search.templatesConfig.helpers.emojify = function() {
   }
 };
 
+
+// run
 search.start();

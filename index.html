@@ -24,6 +24,7 @@
       <div class="five columns">
         <h2>The Essential Vault</h2>
 
+        <!-- divs for the instantsearch.js widgets -->
         <div class="audio_player"></div>
 
         <div id="search-box"></div>
@@ -40,8 +41,11 @@
 
       </div>
       <div class="seven columns">
-        <div id="sort"></div>
+
+        <!-- Where the results live -->
         <div id="hits"></div>
+
+        <!-- Paginate the long lists -->
         <div id="pagination"></div>
       </div>
     </div>
@@ -49,6 +53,7 @@
 
   </div>
 
+  <!-- Hit template -->
   <script type="text/html" id="hit-template">
     <div class="hit">
       <div class="hit-content">
@@ -64,13 +69,9 @@
     </div>
   </script>
 
+  <!-- JS requirements -->
   <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.2.1/dist/instantsearch.min.js"></script>
   <script src="js/moment.js"></script>
   <script src="js/scripts.js"></script>
-  <script type="text/javascript">
-
-
-
-  </script>
 </body>
 </html>
