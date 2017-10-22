@@ -54,6 +54,12 @@ img {
   margin-top: -25px;
 }
 
+.clear {
+  font-size: 10px !important;
+  float: right !important;
+  margin-top: -10px !important;
+}
+
 #notice {
   margin-top: -15px;
 }
@@ -92,4 +98,20 @@ img {
 #pagination {
   margin-top: 20px;
   text-align: center;
+}
+
+iframe {
+  margin-bottom: 20px;
+}
+
+.mini-link-hidden {
+  display:none;
+  font-size:10px;
+  float: right;
+}
+
+.small-float {
+  font-size: 10px;
+  float:right;
+  margin-top:-10px;
 }

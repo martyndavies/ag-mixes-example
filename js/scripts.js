@@ -91,23 +91,38 @@ search.addWidget(
 
 search.on('render', function () {
   $(document).ready(function() {
+
     $(".mix-link").click(function(e) {
       e.preventDefault();
       var id = $(this).data('algolia-id');
       mixIndex.getObject(id, function(err, content) {
         if (content.audio_player != null) {
           $('.audio_player').empty();
+          $('#audio-header').fadeIn('slow');
           var mix_url = encodeURI(content.audio_player);
-          $('.audio_player').html('<iframe width="100%" height="60" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&hide_artwork=1&feed='+mix_url+'" frameborder="0" ></iframe>');
+          $('.audio_player').html('<iframe width="100%" height="60" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&light=1&hide_artwork=1&feed='+mix_url+'" frameborder="0" ></iframe>');
           $('.tracklist').slideUp('slow', function(){
             $('.tracklist').empty();
-            $('.tracklist').append('<ol>'+content.tracklist+'</ol>').slideDown('3000');
+            $('.tracklist').append('<ol>'+content.tracklist+'</ol><a href="#" class="close-tracklist">Close Tracklist</a>').slideDown('3000');
           });
         } else {
           $('.notice_'+content.objectID).fadeIn('fast').delay(3000).fadeOut('slow');
         }
       });
     });
+
+    $(document).on('click', '.close-tracklist', function(e){
+      e.preventDefault();
+      $('.tracklist').slideUp('slow');
+      $('.open-tracklist-container').fadeIn('slow');
+    });
+
+    $(document).on('click', '.open-tracklist', function(e){
+      e.preventDefault();
+      $('.tracklist').slideDown('slow');
+      $('.open-tracklist-container').fadeOut('slow');
+    });
+
   });
 });
 
