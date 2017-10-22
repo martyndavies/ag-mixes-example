@@ -101,6 +101,7 @@ search.on('render', function () {
           $('#audio-header').fadeIn('slow');
           var mix_url = encodeURI(content.audio_player);
           $('.audio_player').html('<iframe width="100%" height="60" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&light=1&hide_artwork=1&feed='+mix_url+'" frameborder="0" ></iframe>');
+          $('.open-tracklist-container').fadeOut('slow');
           $('.tracklist').slideUp('slow', function(){
             $('.tracklist').empty();
             $('.tracklist').append('<ol>'+content.tracklist+'</ol><a href="#" class="close-tracklist">Close Tracklist</a>').slideDown('3000');
