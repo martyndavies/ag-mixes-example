@@ -115,3 +115,9 @@ iframe {
   float:right;
   margin-top:-10px;
 }
+
+.links {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 10px;
+}
