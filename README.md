@@ -1,4 +1,4 @@
-## Algolia Example - The Essentia Vault
+## Algolia Example - The Essential Vault
 
 Live version: [ag-example.s3-website-eu-west-1.amazonaws.com](http://ag-example.s3-website-eu-west-1.amazonaws.com)
 
@@ -26,3 +26,11 @@ For example, this custom helper for the template engine adds emojis to the most 
     return this.hotness+'/10';
   }
 };`
+
+Once hits are returned for the search they're pushed to the DOM and rendered.
+
+The whole thing was styled relatively basically using Skeleton, a lightweight CSS framework for building quick layouts.
+
+### Additional
+
+Outside of the web app implementation of this newly gathered index, there is also a Serverless implementation of a REST API for it in progress as well. You can see how it's getting on, [over here](https://github.com/martyndavies/essential-mix-api).
