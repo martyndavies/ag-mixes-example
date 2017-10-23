@@ -19,13 +19,13 @@ The web app is a static HTML file, hosted on Amazon S3 that takes advantage of t
 
 For example, this custom helper for the template engine adds emojis to the most fire mixes, rated 8 or higher:
 
-`search.templatesConfig.helpers.emojify = function() {
+```search.templatesConfig.helpers.emojify = function() {
   if (this.hotness > 8) {
     return this.hotness+'/10 🔥';
   } else {
     return this.hotness+'/10';
   }
-};`
+};```
 
 Once hits are returned for the search they're pushed to the DOM and rendered.
 
