@@ -33,6 +33,10 @@ Once hits are returned for the search they're pushed to the DOM and rendered.
 
 The whole thing was styled relatively basically using Skeleton, a lightweight CSS framework for building quick layouts.
 
+### What else can we do with this data?
+
+Hooking up the Algolia Alexa helper seems like a logical next step, as well as the opportunity to build a secondary index that allows people to see in how many _different_ mixes the same track was played.
+
 ### Additional
 
 Outside of the web app implementation of this newly gathered index, there is also a Serverless implementation of a REST API for it in progress as well. You can see how it's getting on, [over here](https://github.com/martyndavies/essential-mix-api).
