@@ -155,7 +155,7 @@ search.templatesConfig.helpers.trim_long_titles = function() {
 // Some things just need an emoji.
 
 search.templatesConfig.helpers.emojify = function() {
-  if (this.hotness > 8) {
+  if (this.hotness >= 8) {
     return this.hotness+'/10 🔥';
   } else {
     return this.hotness+'/10';
