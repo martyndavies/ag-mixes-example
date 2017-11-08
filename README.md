@@ -1,6 +1,6 @@
 ## Algolia Example - The Essential Vault
 
-Live version: [ag-example.s3-website-eu-west-1.amazonaws.com](http://ag-example.s3-website-eu-west-1.amazonaws.com)
+Live version: [loud-rooster.glitch.me](https://loud-rooster.glitch.me/) (feel free to remix it!)
 
 ### Process
 
